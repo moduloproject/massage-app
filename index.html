@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
 		<meta name="title" content="MASSAGE">
 		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="theme-color" content="#9c27b0">
+		<meta name="theme-color" content="#4CAF50">
 		<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
 		<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
 		<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
@@ -32,41 +32,43 @@
 				background-color: #fff;
 			}
 			core-toolbar {
-				background-color: #9c27b0;
+				background-color: #4CAF50;
 				color: #fff;
 			}
 			.content {
 				margin: 8px;
 			}
 			paper-button {
-				background-color: #9c27b0;
+				background-color: #4CAF50;
 				color: #fff;
 			}
 		</style>
 	</head>
 	<body>
-		<paper-action-dialog class="errorDialog" heading="Your device does not have a vibrator">
+		<paper-action-dialog class="errorDialog" heading="Your device does not have a vibrator" backdrop>
 			<p>Please view this site on a phone or tablet with a vibrator.</p>
 		</paper-action-dialog>
-		<paper-action-dialog heading="About" backdrop transition="core-transition-bottom">
+		<paper-action-dialog class="aboutDialog" heading="About" backdrop transition="core-transition-bottom">
 			<p>This site was created as a joke by <a href="https://adueppen.github.io">A. Dueppen</a> and as a way to test the HTML5 Vibration API</p>
 			<paper-button affirmative autofocus>Close</paper-button>
 		</paper-action-dialog>
 		<core-header-panel>
 			<core-toolbar>
 				<span flex>Massage Giver</span>
-				<paper-icon-button icon="info" onclick="document.querySelector('paper-action-dialog').toggle()"></paper-icon-button>
+				<paper-icon-button icon="info" onclick="document.querySelector('.aboutDialog').toggle()"></paper-icon-button>
 			</core-toolbar>
 			<div class="content">
-				<paper-button raised>Start the massage</paper-button>
+				<paper-button raised onclick="massage()">Start the massage</paper-button>
 			</div>
 		</core-header-panel>
 		<script>
-			if (navigator.vibrate) {
-				//YES!!!
-			}
-			else {
-				document.querySelector('.errorDialog').toggle()
+			function massage() {
+				if (navigator.vibrate) {
+					navigator.vibrate(1000000);
+				} else {
+					document.querySelector('.errorDialog').toggle();
+					console.log("Sorry, but your device does not support vibration.");
+				}
 			}
 		</script>
 	</body>
