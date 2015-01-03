@@ -17,7 +17,7 @@
 		<link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
 		<style>
 			body, html {
-				font-family: 'RobotoDraft', sans;
+				font-family: 'RobotoDraft', sans-serif;
 				-webkit-user-select: none;
 				-moz-user-select: none;
 				-ms-user-select: none;
@@ -31,16 +31,13 @@
 				height: 100%;
 				background-color: #fff;
 			}
-			core-toolbar {
+			core-toolbar,
+			paper-button {
 				background-color: #4CAF50;
 				color: #fff;
 			}
 			.content {
 				margin: 8px;
-			}
-			paper-button {
-				background-color: #4CAF50;
-				color: #fff;
 			}
 		</style>
 	</head>
@@ -58,6 +55,7 @@
 				<paper-icon-button icon="info" onclick="document.querySelector('.aboutDialog').toggle()"></paper-icon-button>
 			</core-toolbar>
 			<div class="content">
+				<p>Put the phone on your table, lay down, and click the Start button. Enjoy !</p>
 				<paper-button raised onclick="massage()">Start the massage</paper-button>
 				<paper-button raised onclick="navigator.vibrate(0);">Stop vibration</paper-button>
 			</div>
