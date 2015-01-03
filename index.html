@@ -45,8 +45,8 @@
 		</style>
 	</head>
 	<body>
-		<paper-action-dialog class="errorDialog" heading="Your device does not have a vibrator" backdrop>
-			<p>Please view this site on a phone or tablet with a vibrator.</p>
+		<paper-action-dialog class="errorDialog" heading="Your device does not support vibration." backdrop>
+			<p>Please view this site on an Android device.</p>
 		</paper-action-dialog>
 		<paper-action-dialog class="aboutDialog" heading="About" backdrop transition="core-transition-bottom">
 			<p>This site was created as a joke by <a href="https://adueppen.github.io">A. Dueppen</a> and as a way to test the HTML5 Vibration API</p>
@@ -59,12 +59,13 @@
 			</core-toolbar>
 			<div class="content">
 				<paper-button raised onclick="massage()">Start the massage</paper-button>
+				<paper-button raised onclick="navigator.vibrate(0);">Stop vibration</paper-button>
 			</div>
 		</core-header-panel>
 		<script>
 			function massage() {
 				if (navigator.vibrate) {
-					navigator.vibrate(1000000);
+					navigator.vibrate(10000,1,10000,1,10000);
 				} else {
 					document.querySelector('.errorDialog').toggle();
 					console.log("Sorry, but your device does not support vibration.");
