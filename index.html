@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title>MASSAGE</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+		<meta name="title" content="MASSAGE">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="theme-color" content="#9c27b0">
+		<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+		<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+		<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+		<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+		<link rel="import" href="bower_components/core-icons/core-icons.html">
+		<link rel="import" href="bower_components/paper-button/paper-button.html">
+		<link rel="import" href="bower_components/font-roboto/roboto.html">
+		<link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+		<link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+		<style>
+			body, html {
+				font-family: 'RobotoDraft', sans;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-o-user-select: none;
+				user-select: none;
+				height: 100%;
+				width: 100%;
+				margin: 0;
+			}
+			core-header-panel {
+				height: 100%;
+				background-color: #fff;
+			}
+			core-toolbar {
+				background-color: #9c27b0;
+				color: #fff;
+			}
+			.content {
+				margin: 8px;
+			}
+			paper-button {
+				background-color: #9c27b0;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<paper-action-dialog class="errorDialog" heading="Your device does not have a vibrator">
+			<p>Please view this site on a phone or tablet with a vibrator.</p>
+		</paper-action-dialog>
+		<paper-action-dialog heading="About" backdrop transition="core-transition-bottom">
+			<p>This site was created as a joke by <a href="https://adueppen.github.io">A. Dueppen</a> and as a way to test the HTML5 Vibration API</p>
+			<paper-button affirmative autofocus>Close</paper-button>
+		</paper-action-dialog>
+		<core-header-panel>
+			<core-toolbar>
+				<span flex>Massage Giver</span>
+				<paper-icon-button icon="info" onclick="document.querySelector('paper-action-dialog').toggle()"></paper-icon-button>
+			</core-toolbar>
+			<div class="content">
+				<paper-button raised>Start the massage</paper-button>
+			</div>
+		</core-header-panel>
+		<script>
+			if (navigator.vibrate) {
+				//YES!!!
+			}
+			else {
+				document.querySelector('.errorDialog').toggle()
+			}
+		</script>
+	</body>
+</html>

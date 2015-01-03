@@ -1,0 +1,23 @@
+{
+  "name": "massage-app",
+  "version": "0.0.0.0.0.0.0.0.0.0.0.0.0.0.1",
+  "homepage": "https://github.com/adueppen/massage-app",
+  "authors": [
+    "adueppen <fourdoops@gmail.com>"
+  ],
+  "description": "MASSAGE FOR FREE!!1",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-elements": "Polymer/paper-elements#~0.5.2",
+    "core-elements": "Polymer/core-elements#~0.5.2"
+  }
+}
