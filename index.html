@@ -42,6 +42,13 @@
 		</style>
 	</head>
 	<body unresolved>
+	<script type="text/javascript">
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		 // some code..
+		} else {
+			alert("You are using a desktop browser. This will not work for you.")
+		}
+	</script>
 		<paper-action-dialog class="errorDialog" heading="Your device does not support vibration." backdrop>
 			<p>Please view this site on an Android device.</p>
 		</paper-action-dialog>
