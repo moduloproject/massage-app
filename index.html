@@ -15,42 +15,13 @@
 		<link rel="import" href="bower_components/font-roboto/roboto.html">
 		<link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
 		<link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
-		<style>
-			body, html {
-				font-family: 'RobotoDraft', sans-serif;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				-o-user-select: none;
-				user-select: none;
-				height: 100%;
-				width: 100%;
-				margin: 0;
-			}
-			core-header-panel {
-				height: 100%;
-				background-color: #fff;
-			}
-			core-toolbar,
-			paper-button {
-				background-color: #4CAF50;
-				color: #fff;
-			}
-			.content {
-				margin: 8px;
-			}
-		</style>
+        <link rel="stylesheet" href="css/index.css">
+        <script language="javacript" type="text/javascript" src="js/checkIfAndroid.js"></script>
 	</head>
-	<body unresolved>
-	<script type="text/javascript">
-		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-		 // some code..
-		} else {
-			alert("You are using a desktop browser. This will not work for you.")
-		}
-	</script>
+	<body unresolved onload="checkIfAndroid()">
 		<paper-action-dialog class="errorDialog" heading="Your device does not support vibration." backdrop>
 			<p>Please view this site on an Android device.</p>
+            <paper-button affirmative autofocus>Close</paper-button>
 		</paper-action-dialog>
 		<paper-action-dialog class="aboutDialog" heading="About" backdrop transition="core-transition-bottom">
 			<p>This site was created as a joke by <a href="https://adueppen.github.io">A. Dueppen</a> and as a way to test the HTML5 Vibration API</p>
@@ -67,15 +38,6 @@
 				<paper-button raised onclick="navigator.vibrate(0);">Stop vibration</paper-button>
 			</div>
 		</core-header-panel>
-		<script>
-			function massage() {
-				if (navigator.vibrate) {
-					navigator.vibrate([10000, 1, 10000, 1, 10000]);
-				} else {
-					document.querySelector('.errorDialog').toggle();
-					console.log("Sorry, but your device does not support vibration.");
-				}
-			}
-		</script>
+        <script language="javacript" type="text/javascript" src="js/message.js"></script>
 	</body>
 </html>

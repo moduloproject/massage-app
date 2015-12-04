@@ -1,0 +1,28 @@
+body, html {
+    font-family: 'RobotoDraft', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+core-header-panel {
+    height: 100%;
+    background-color: #fff;
+}
+core-toolbar,
+paper-button {
+    background-color: #4CAF50;
+    color: #fff;
+}
+.content {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0%;
+    width: 100%;
+}
